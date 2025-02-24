@@ -46,7 +46,4 @@ class CustomArcPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-
-  @override
-  bool shouldRebuildRepaint(covariant CustomPainter oldDelegate) => false;
 }

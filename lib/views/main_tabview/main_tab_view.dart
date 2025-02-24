@@ -1,5 +1,7 @@
 import 'package:finance_app/commons/color_extension.dart';
+import 'package:finance_app/views/add_subscription/add_subscription.dart';
 import 'package:finance_app/views/calenders/calender_view.dart';
+import 'package:finance_app/views/cards/card_view.dart';
 import 'package:finance_app/views/homes/home_view.dart';
 import 'package:finance_app/views/spending_budgets/spending_budgets_view.dart';
 
@@ -90,7 +92,7 @@ class _MainTabViewState extends State<MainTabView> {
                                   onPressed: () {
                                     setState(() {
                                       selectTab = 3;
-                                      currentPage = Container();
+                                      currentPage = CardView();
                                     });
                                   },
                                   icon: Image.asset(
@@ -106,7 +108,10 @@ class _MainTabViewState extends State<MainTabView> {
                         ],
                       ),
                       InkWell(
-                        onTap: () => Container(),
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddSubscription())),
                         child: Container(
                           margin: EdgeInsets.all(20),
                           decoration: BoxDecoration(boxShadow: [

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class RoundTextFlied extends StatelessWidget {
   final String title;
   final TextEditingController? controller;
+  final TextAlign titleAlign;
   final TextInputType? keyboardType;
   final bool obscureText;
   const RoundTextFlied(
@@ -11,16 +12,24 @@ class RoundTextFlied extends StatelessWidget {
       required this.title,
       this.controller,
       this.keyboardType,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.titleAlign = TextAlign.left});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title,
-            // textAlign: TextAlign.center,
-            style: TextStyle(color: TColor.gray50, fontSize: 14)),
+        Row(
+          children: [
+            Expanded(
+              child: Text(title,
+                  textAlign: titleAlign,
+                  // textAlign: TextAlign.center,
+                  style: TextStyle(color: TColor.gray50, fontSize: 14)),
+            ),
+          ],
+        ),
         const SizedBox(height: 5),
         Container(
           height: 48,

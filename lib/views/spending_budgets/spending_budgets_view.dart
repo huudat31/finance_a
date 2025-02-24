@@ -1,7 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:finance_app/common_widget/budget_row.dart';
 import 'package:finance_app/common_widget/custom_arc_painter_spend.dart';
-
 import 'package:finance_app/commons/color_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -87,7 +86,7 @@ class _SpendingBudgetsViewState extends State<SpendingBudgetsView> {
                           fontWeight: FontWeight.w500),
                     ),
                   ],
-                )
+                ),
               ],
             ),
             const SizedBox(

@@ -11,42 +11,46 @@ class SubscriptionCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+        borderRadius: BorderRadius.circular(16),
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-              border: Border.all(color: TColor.border.withOpacity(.15)),
+              border: Border.all(color: TColor.border.withOpacity(.1)),
               color: TColor.gray60.withOpacity(.2),
               borderRadius: BorderRadius.circular(20)),
-          alignment: Alignment.center,
-          child: Row(
+          alignment: Alignment.centerLeft,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                sObj['icon'],
-                width: 40,
-                height: 40,
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Expanded(
-                child: Text(
-                  sObj['name'],
-                  style: TextStyle(
-                      color: TColor.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600),
+              if (sObj['icon'] != null)
+                Image.asset(
+                  sObj['icon'],
+                  width: 45,
+                  height: 45,
+                )
+              else
+                SizedBox(
+                  width: 40,
+                  height: 40,
                 ),
+              Spacer(),
+              Text(
+                sObj['name'] ?? 'Unknown',
+                style: TextStyle(
+                    color: TColor.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600),
               ),
               SizedBox(
                 width: 8,
               ),
               Text(
-                '\$${sObj["price"]}',
+                '\$${sObj["price"] ?? '0.00'}',
                 style: TextStyle(
                     color: TColor.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700),
               ),
             ],
           ),

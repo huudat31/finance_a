@@ -4,6 +4,7 @@ import 'package:finance_app/common_widget/status_button.dart';
 import 'package:finance_app/common_widget/subscription_view_row.dart';
 import 'package:finance_app/common_widget/upcoming_bill_row.dart';
 import 'package:finance_app/commons/color_extension.dart';
+import 'package:finance_app/views/subcription_info/subcription_info_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -213,7 +214,16 @@ class _HomeViewState extends State<HomeView> {
                   var sObj = subArr[index] as Map? ?? {};
                   return Column(
                     children: [
-                      SubscriptionViewRow(sObj: sObj, onPressed: () {})
+                      SubscriptionViewRow(
+                          sObj: sObj,
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return SubcriptionInfoView(
+                                sObj: sObj,
+                              );
+                            }));
+                          })
                     ],
                   );
                 },
